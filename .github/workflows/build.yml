@@ -31,14 +31,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: MHRand_win-x64
-          path: /home/runner/work/TeaTime/TeaTime/TeaTimeCounter/bin/Release/net6.0/win-x64/publish/
+          path: TeaTimeCounter/bin/Release/net6.0/win-x64/publish/
       - name: Upload Linux
         uses: actions/upload-artifact@v3
         with:
           name: MHRand_linux-x64
-          path: /home/runner/work/TeaTime/TeaTime/TeaTimeCounter/bin/Release/net6.0/linux-x64/publish/
+          path: TeaTimeCounter/bin/Release/net6.0/linux-x64/publish/
       - name: Upload Osx
         uses: actions/upload-artifact@v3
         with:
           name: MHRand_osx-x64
-          path: /home/runner/work/TeaTime/TeaTime/TeaTimeCounter/bin/Release/net6.0/osx-x64/publish/
+          path: TeaTimeCounter/bin/Release/net6.0/osx-x64/publish/
