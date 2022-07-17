@@ -3,7 +3,9 @@ Application to increment and create HTML page with counter for ammount of cups o
 
 ## Flies
 Template.html -> File that has the html template
+
 tea.txt -> stores the current count
+
 TeaTime.html -> Used by OBS to show on stream
 
 ## Usage
