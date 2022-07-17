@@ -1,0 +1,44 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - "**.md"
+      - "*/LICENSE"
+      - "*/.gitignore"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: "6.0.x"
+      - name: Restore
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release
+      - name: Publish Windows
+        run: dotnet publish --configuration Release -r win-x64
+      - name: Publish Linux
+        run: dotnet publish --configuration Release -r linux-x64
+      - name: Publish OSX
+        run: dotnet publish --configuration Release -r osx-x64
+      - name: Upload Windows
+        uses: actions/upload-artifact@v3
+        with:
+          name: MHRand_win-x64
+          path: /home/runner/work/TeaTime/TeaTimeCounter/bin/Release/net6.0/win-x64/publish/
+      - name: Upload Linux
+        uses: actions/upload-artifact@v3
+        with:
+          name: MHRand_linux-x64
+          path: /home/runner/work/TeaTime/TeaTimeCounter/bin/Release/net6.0/linux-x64/publish/
+      - name: Upload Osx
+        uses: actions/upload-artifact@v3
+        with:
+          name: MHRand_osx-x64
+          path: /home/runner/work/TeaTime/TeaTimeCounter/bin/Release/net6.0/osx-x64/publish/
